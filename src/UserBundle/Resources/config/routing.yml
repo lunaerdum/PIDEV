@@ -1,0 +1,14 @@
+user_homepage:
+    path:     /
+    defaults: { _controller: UserBundle:Default:index }
+Page_Client:
+    path:     /pageClient
+    defaults: { _controller: UserBundle:Default:Parent }
+
+Page_Admin:
+    path:     /admin
+    defaults: { _controller: UserBundle:Default:Admin }
+
+Page_Fornisseur:
+    path:     /pageFournisseur
+    defaults: { _controller: UserBundle:Default:Responsable }
