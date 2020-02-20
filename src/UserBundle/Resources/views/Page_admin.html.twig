@@ -51,20 +51,19 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            Interface
+            Resources Humaines
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>Components</span>
+                <span>Gestion des Employees</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="{{ asset('NewBack/buttons.html') }}">Buttons</a>
-                    <a class="collapse-item" href="{{ asset('NewBack/cards.html') }}">Cards</a>
+                    <a class="collapse-item" href="{{ path('Employer_Afficher') }}">Liste des Employees</a>
+                    <a class="collapse-item" href="{{ path('Employer_Ajout') }}">Ajouter un Employee</a>
                 </div>
             </div>
         </li>
@@ -73,15 +72,12 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilities</span>
+                <span>Les types</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="{{ asset('NewBack/utilities-colors.html') }}">Colors</a>
-                    <a class="collapse-item" href="{{ asset('NewBack/utilities-border.html') }}">Borders</a>
-                    <a class="collapse-item" href="{{ asset('NewBack/utilities-animation.html') }}">Animations</a>
-                    <a class="collapse-item" href="{{ asset('NewBack/utilities-other.html') }}">Other</a>
+                    <a class="collapse-item" href="{{ path('Type_AfficherType') }}">Liste des types</a>
+                    <a class="collapse-item" href="{{ path('Type_AjoutType') }}">Ajouter un type</a>
                 </div>
             </div>
         </li>
@@ -138,6 +134,8 @@
 
     </ul>
     <!-- End of Sidebar -->
+
+
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -327,6 +325,8 @@
 
             </nav>
             <!-- End of Topbar -->
+
+            {% block body  %}
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -624,7 +624,7 @@
             </div>
         </footer>
         <!-- End of Footer -->
-
+        {% endblock %}
     </div>
     <!-- End of Content Wrapper -->
 
@@ -656,21 +656,21 @@
 </div>
 
 <!-- Bootstrap core JavaScript-->
-<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('NewBack/vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('NewBack/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 <!-- Core plugin JavaScript-->
-<script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+<script src="{{ asset('NewBack/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+<script src="{{ asset('NewBack/js/sb-admin-2.min.js') }}"></script>
 
 <!-- Page level plugins -->
-<script src="{{ asset('vendor/chart.js/Chart.min.js') }}"></script>
+<script src="{{ asset('NewBack/vendor/chart.js/Chart.min.js') }}"></script>
 
 <!-- Page level custom scripts -->
-<script src="{{ asset('js/demo/chart-area-demo.js') }}"></script>
-<script src="{{ asset('js/demo/chart-pie-demo.js') }}"></script>
+<script src="{{ asset('NewBack/js/demo/chart-area-demo.js') }}"></script>
+<script src="{{ asset('NewBack/js/demo/chart-pie-demo.js') }}"></script>
 
 </body>
 
