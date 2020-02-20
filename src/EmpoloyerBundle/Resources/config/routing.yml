@@ -1,0 +1,31 @@
+empoloyer_homepage:
+    path:     /
+    defaults: { _controller: EmpoloyerBundle:Default:index }
+
+Type_AjoutType:
+    path:     /admin/AjoutType
+    defaults: { _controller: EmpoloyerBundle:Type:AjoutType }
+
+Type_AfficherType:
+    path:     /admin/AffihcerType
+    defaults: { _controller: EmpoloyerBundle:Type:AfficheType }
+
+Type_SupprimerType:
+    path:     /admin/supprimerType/{id}
+    defaults: { _controller: EmpoloyerBundle:Type:deleteType }
+
+Employer_Ajout :
+    path:     /admin/AjoutEmployer
+    defaults: { _controller: EmpoloyerBundle:Empolyer:AjouterEmployer }
+
+Employer_Afficher :
+    path:     /admin/AfficherEmployer
+    defaults: { _controller: EmpoloyerBundle:Empolyer:AfficheEmployer }
+
+Empoloyer_Supprimer:
+    path:     /admin/supprimerEmpooyer/{id}
+    defaults: { _controller: EmpoloyerBundle:Empolyer:deleteEmployer }
+
+:
+    path:     /admin/ModifierEmpooyer/{id}
+    defaults: { _controller: EmpoloyerBundle:Empolyer:ModifierProduit }

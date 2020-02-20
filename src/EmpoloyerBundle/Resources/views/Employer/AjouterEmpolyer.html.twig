@@ -1,0 +1,48 @@
+{% extends "@User/Page_admin.html.twig" %}
+
+{% block content %}
+
+    {{ form_start(form) }}
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Employer</h4>
+                <p class="card-description">
+                </p>
+                <div class="form-group">
+                    <label for="exampleInputName1">Matricule</label>
+                    {{ form_widget(form.matricule, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Nom</label>
+                    {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Prenom</label>
+                    {{ form_widget(form.prenom, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label>File upload</label>
+                    {{ form_widget(form.file, { 'attr': {'class': 'form-control file-upload-info'} }) }}
+
+                    <input type="file" name="img[]" class="file-upload-default">
+                    <div class="input-group col-xs-12">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputCity1">Date de Naissance</label>
+                    {{ form_widget(form.dateNai, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Type</label>
+                    {{ form_widget(form.id_Type, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <input type="submit" value="Envoyer" class=" btn btn-primary mr-2"/>
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
