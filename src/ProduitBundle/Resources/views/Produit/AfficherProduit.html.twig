@@ -1,0 +1,98 @@
+{% extends "@User/Page_admin.html.twig" %}
+{% block body %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#amine tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+
+
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Produit</h4>
+
+                <div class="table-responsive pt-3">
+
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                id
+                            </th>
+                            <th>
+                                Nom
+                            </th>
+                            <th>
+                                Marque
+                            </th>
+                            <th>
+                                Quantite
+                            </th>
+                            <th>
+                                Categorie
+                            </th>
+                            <th>
+                                Prix
+                            </th>
+                            <th>
+                                image
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody id="amine">
+                        {% for p in prod %}
+
+                            <tr>
+                                <td>
+                                    {{ p.id }}
+                                </td>
+                                <td>
+                                    {{ p.nom }}
+                                </td>
+                                <td>
+                                    {{ p.marque }}
+                                </td>
+                                <td>
+                                    {{ p.quantite }}
+                                </td>
+                                <td>
+                                    {{ p.getIdCategorie.getnom}}
+                                </td>
+                                <td>
+                                    {{ p.prix }}
+                                </td>
+                                <td>
+                                    <img src="{{ asset('Upload/')}}{{ p.nomfile }}" width="100" class="img-circle" />
+                                </td>
+                                <td><a href="{{ path('produit_Supprimer',{'id':p.id}) }}">Supprimer</a><br><br>
+                                    <a href="{{ path('produit_Modifier',{'id':p.id}) }}">Modifier</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table><br>
+                    <div class="navigation text-center" >
+                        {{ knp_pagination_render(prod) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
