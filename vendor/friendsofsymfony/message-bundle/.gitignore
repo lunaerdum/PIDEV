@@ -1,0 +1,9 @@
+composer.lock
+phpunit.xml
+.phpunit
+vendor
+.php_cs.cache
+.php_cs
+Tests/Functional/cache
+Tests/Functional/logs
+var
