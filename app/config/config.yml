@@ -81,3 +81,8 @@ fos_user:
     from_email:
         address: "beya@mgmail.com"
         sender_name: "beya@mgmail.com"
+
+fos_message:
+    db_driver: orm
+    thread_class: UserBundle\Entity\Thread
+    message_class: UserBundle\Entity\Message
