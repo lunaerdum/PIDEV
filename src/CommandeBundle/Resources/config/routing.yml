@@ -1,0 +1,52 @@
+commande_homepage:
+    path:     /
+    defaults: { _controller: CommandeBundle:Default:index }
+
+AjouterFourniseeur:
+    path:     /admin/ajouterFournisseur
+    defaults: { _controller: CommandeBundle:Fournisseur:AjoutFournisseur }
+
+AfficherFourniseeur:
+    path:     /admin/AfficherFournisseur
+    defaults: { _controller: CommandeBundle:Fournisseur:AfficherFournisseur }
+
+deleteFourniseeur:
+    path:     /admin/deleteFournisseur/{id}
+    defaults: { _controller: CommandeBundle:Fournisseur:deleteFournissur }
+
+UpdateFourniseeur:
+    path:     /admin/UpdateFournisseur/{id}
+    defaults: { _controller: CommandeBundle:Fournisseur:ModifierFournissuer }
+
+Affecter:
+    path:     /admin/Ajouter/{id}
+    defaults: { _controller: CommandeBundle:Commande:AjouterCommande }
+
+CommandeAffiche:
+    path:     /admin/CommandeAffiche
+    defaults: { _controller: CommandeBundle:Commande:AfficheCommande }
+
+CommandeSupprimer:
+    path:     /admin/SupprimerAffiche/{id}
+    defaults: { _controller: CommandeBundle:Commande:deleteCommande }
+
+CommandeModifier:
+    path:     /admin/SupprimerAffiche/{id}/{idf}
+    defaults: { _controller: CommandeBundle:Commande:ModifierCommande }
+
+AccepterCommande:
+    path:     /Fournisseur/AccepterAffiche/{id}
+    defaults: { _controller: CommandeBundle:Commande:AccepterCommande }
+
+
+RefuserCommande:
+    path:     /Fournisseur/RefuseAffiche/{id}
+    defaults: { _controller: CommandeBundle:Commande:RefuserCommande }
+
+pdf:
+    path:     /pdf
+    defaults: { _controller: CommandeBundle:Commande:Pdf }
+
+Contact:
+    path:     /admin/messsage
+    defaults: { _controller: CommandeBundle:Commande:Contact }

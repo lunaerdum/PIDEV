@@ -11,4 +11,4 @@ Page_Admin:
 
 Page_Fornisseur:
     path:     /pageFournisseur
-    defaults: { _controller: UserBundle:Default:Responsable }
+    defaults: { _controller: UserBundle:Default:Fornisseur }

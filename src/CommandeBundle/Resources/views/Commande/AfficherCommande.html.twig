@@ -1,0 +1,97 @@
+{% extends "@User/Page_admin.html.twig" %}
+{% block body %}
+    {% set somme =0 %}
+<style>
+    a.btn {
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -o-transform: scale(0.8);
+        -webkit-transition-duration: 0.5s;
+        -moz-transition-duration: 0.5s;
+        -o-transition-duration: 0.5s;
+    }
+</style>
+    <a class="btn btn-dark a-btn-slide-text" href="{{ path('pdf') }}">
+        <span class="fa fa-file" aria-hidden="true"></span>
+        <span><strong>Imprimer</strong></span></a>
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Commandes </h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                id
+                            </th>
+                            <th>
+                                Fournisseur
+                            </th>
+                            <th>
+                                Produit
+                            </th>
+                            <th>
+                                prix
+                            </th>
+                            <th>
+                                Quantite
+                            </th>
+
+                            <th>
+                                etat
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                            <th>
+                                Prix Commande
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for c in comm %}
+
+                            <tr>
+                                <td>
+                                    {{ c.id }}
+                                </td>
+                                <td>
+                                    {{ c.IdFor.username}}
+                                </td>
+                                <td>
+                                    {{ c.IdProd.marque}}
+                                </td>
+                                <td>
+                                    {{ c.IdProd.prix }}
+                                </td>
+
+                                <td>
+                                    {{ c.quantite }}
+                                </td>
+                                <td>
+                                    {{ c.etat }}
+                                </td>
+                                <td>
+
+                                    <a class="btn btn-success a-btn-slide-text" href="{{ path('CommandeModifier',{'id':c.id,'idf':c.IdFor.id}) }}">
+                                        <span class="fa fa-edit" aria-hidden="true"></span>
+                                        <span><strong>Modifier</strong></span></a>
+                                    <a class="btn btn-danger a-btn-slide-text" href="{{ path('CommandeSupprimer',{'id':c.id}) }}">
+                                        <span class="fa fa-minus-circle" aria-hidden="true"></span>
+                                        <span><strong>Supprimer</strong></span></a>
+
+                                </td>
+                                <td>
+                           <h5>  {{ c.IdProd.prix*c.quantite }} </h5>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

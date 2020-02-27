@@ -24,4 +24,53 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
     }
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="Tel", type="integer", nullable=true)
+     */
+    private $Tel;
+
+    /**
+     * @return int
+     */
+    public function getTel()
+    {
+        return $this->Tel;
+    }
+
+    /**
+     * @param int $Tel
+     */
+    public function setTel($Tel)
+    {
+        $this->Tel = $Tel;
+    }
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="adresse", type="string", nullable=true)
+     */
+    private $adresse;
+
+    /**
+     * @return int
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * @param int $adresse
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+
+
+
 }

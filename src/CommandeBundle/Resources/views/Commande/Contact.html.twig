@@ -1,0 +1,34 @@
+{% extends "@User/Page_admin.html.twig" %}
+{% block body %}
+    {{ form_start(form) }}
+
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Contact</h4>
+                <p class="card-description">
+                </p>
+                <div class="form-group">
+                    <label for="exampleInputName1">subject</label>
+                    {{ form_widget(form.subject, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    <label for="form-message">Message:</label>
+                    {{ form_widget(form.message, { 'attr': {'class': 'form-control'} }) }}
+
+                </div>
+                <label for="exampleInputEmail3">E-mail</label>
+                {{ form_widget(form.email, { 'attr': {'class': 'form-control'} }) }}
+            </div>
+
+            {{ form_end(form) }}
+
+
+
+            </div>
+        <input type="submit" value="Envoyer" class="btn btn-primary mr-2" >
+        </div>
+
+
+        {% endblock %}

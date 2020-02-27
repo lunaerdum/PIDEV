@@ -16,7 +16,13 @@ class DefaultController extends Controller
     }
     public function FornisseurAction()
     {
-        return $this->render('UserBundle::Page_fornisseur.html.twig');
+        $m = $this->getDoctrine()->getManager();
+        $commande = $m->getRepository("CommandeBundle:Commade")->findBy(array("id_for"=> $this->getUser()->getId()));
+
+
+        return $this->render('UserBundle::Page_fornisseur.html.twig', array(
+            'comm' => $commande
+        ));
     }
     public function AdminAction()
     {

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+        table{
+            caption-side: bottom;
+        }
+        thead, tfoot {
+            background-color:#D0E3FA;
+            background-image:url(sky.jpg);
+            border:1px solid #6495ed;
+        }
+        tbody {
+            background-color:#FFFFFF;
+            border:1px solid #6495ed;
+        }
+        th, td{
+            border: 1px solid black;
+            padding: 10px;
+        }
+        caption{
+            background-color: #0AD;
+            font-weight: bold;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Liste Des Commande</title>
+</head>
+<body>
+<div class="table-responsive">
+    <br>
+    <center>
+<table  border="1">
+    <thead>
+    <tr>
+
+        <th>
+            Fournisseur
+        </th>
+        <th>
+            Produit
+        </th>
+        <th>
+            Prix
+        </th>
+        <th>
+            Quantité
+        </th>
+        <th>
+            Prix Commande
+        </th>
+
+        <th>
+            etat
+        </th>
+
+    </tr>
+    </thead>
+    <body>
+    {% for c in comm %}
+
+        <tr>
+
+            <td>
+                {{ c.IdFor.username}}
+            </td>
+            <td>
+                {{ c.IdProd.marque}}
+            </td>
+            <td>
+                {{ c.IdProd.prix }}
+            </td>
+
+            <td>
+                {{ c.quantite }}
+            </td>
+            <td>
+                <h5>  {{ c.IdProd.prix*c.quantite }} </h5>
+            </td>
+            <td>
+                {{ c.etat }}
+            </td>
+
+
+
+    </tr>
+    {% endfor %}
+
+    </body>
+
+</table>
+    </center>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% extends "@User/Page_admin.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Commandes </h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+
+                            <th>
+                                Produit
+                            </th>
+                            <th>
+                                Quantite
+                            </th>
+                            <th>
+                                Marque
+                            </th>
+                            <th>
+                                etat
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for c in comm %}
+
+                            <tr>
+
+                                <td>
+                                    {{ c.IdProd.nom }}
+                                </td>
+                                <td>
+                                    {{ c.marque }}
+                                </td>
+
+                                <td>
+                                    {{ c.quantite }}
+                                </td>
+                                <td>
+                                    {{ c.etat }}
+                                </td>
+
+                                <td>
+                                   <button class=" btn btn-success"> <a href="{{ path('AccepterCommande',{'id':c.id})}}">Accepter</a></button><br><br>
+                                  <button class="btn btn-danger">  <a href="{{ path('RefuserCommande',{'id':c.id}) }}">Refusé</a></button>
+                                </td>
+
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
