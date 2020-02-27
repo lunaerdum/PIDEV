@@ -1,0 +1,15 @@
+panier_homepage:
+    path:     /
+    defaults: { _controller: PanierBundle:Default:index }
+
+panier_Ajout:
+    path:     /AjoutPanier
+    defaults: { _controller: PanierBundle:Panier:commande }
+
+panier_Afficher:
+    path:     /admin/AfficherPanier
+    defaults: { _controller: PanierBundle:Panier:AffichBack }
+
+panier_details:
+    path:     /admin/details/{id}
+    defaults: { _controller: PanierBundle:Panier:detail }

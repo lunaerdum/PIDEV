@@ -1,0 +1,37 @@
+produit_homepage:
+    path:     /
+    defaults: { _controller: ProduitBundle:Default:index }
+
+produit_Ajout:
+    path:     /admin/ajouterProduit
+    defaults: { _controller: ProduitBundle:Produit:AjouterProduit }
+
+produit_Afficher:
+    path:     /admin/AfficherProduit
+    defaults: { _controller: ProduitBundle:Produit:AfficheProduit }
+
+produit_Supprimer:
+    path:     /admin/deleteProduit/{id}
+    defaults: { _controller: ProduitBundle:Produit:deleteProduit }
+
+
+produit_Modifier:
+    path:     /admin/ModifierProduit/{id}
+    defaults: { _controller: ProduitBundle:Produit:ModifierProduit }
+
+Promotion_Ajout:
+    path:     /admin/ajouterPromotion
+    defaults: { _controller: ProduitBundle:Promotion:AjoutPromotion }
+
+Promotion_Affiche:
+    path:     /admin/AfficherPromotion
+    defaults: { _controller: ProduitBundle:Promotion:AffichePromotion }
+
+
+Promotion_Delete:
+    path:     /admin/DeletePromotion/{id}
+    defaults: { _controller: ProduitBundle:Promotion:deletePromotion }
+
+Promotion_Modifier:
+    path:     /admin/ModifierPromotion/{id}
+    defaults: { _controller: ProduitBundle:Promotion:ModifierPromotion }

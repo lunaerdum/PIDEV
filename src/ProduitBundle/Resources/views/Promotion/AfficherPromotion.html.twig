@@ -1,0 +1,62 @@
+{% extends "@User/Page_admin.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Produit</h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                id
+                            </th>
+                            <th>
+                                Valeur
+                            </th>
+                            <th>
+                                Produit
+                            </th>
+                            <th>
+                                Date fin
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for p in pro %}
+
+                            <tr>
+                                <td>
+                                    {{ p.id }}
+                                </td>
+                                <td>
+                                    {{ p.valeur }}
+                                </td>
+
+                                <td>
+                                    {{ p.getIdProduit.getnom}}
+                                </td>
+                                <td>
+                                    {{ p.datef }}
+                                </td>
+
+                                <td><a href="{{ path('Promotion_Delete',{'id':p.id}) }}">Supprimer</a><br><br>
+                                    <a href="{{ path('Promotion_Modifier',{'id':p.id}) }}">Modifier</a>
+                                </td>
+
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

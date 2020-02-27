@@ -1,0 +1,11 @@
+{% extends "@User/Page_admin.html.twig" %}
+
+{% block body %}
+
+{{ form_start(form) }}
+Nom: {{ form_widget(form.nom, { 'attr': {'class': 'contact-fields-w3ls'} }) }}
+    <input type="submit" value="Envoyer" class=" btn-success"/>
+{{ form_end(form) }}
+
+
+{% endblock %}

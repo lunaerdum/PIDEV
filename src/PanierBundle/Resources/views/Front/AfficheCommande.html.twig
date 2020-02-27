@@ -1,0 +1,59 @@
+{% extends "@User/Page_admin.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Commande </h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                Commande
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                            <th>
+                                Total
+                            </th>
+                            <th>
+                                Action
+                            </th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for p in panier %}
+
+                            <tr>
+                                <td>
+                                    {{ p.id }}
+                                </td>
+                                <td>
+                                    {{ p.date|date }}
+                                </td>
+                                <td>
+                                    {{ p.total }}
+                                </td>
+
+                                <td><a href="{{ path('panier_details',{'id':p.id}) }}" >
+                                        <button  class="btn-xs btn-success">Check</button>
+                                    </a><br>
+                                    <a href="{{ path('AffecterLivraison',{'id':p.id}) }}" >
+                                        <button  class="btn-xs btn-secondary">Livrer</button>
+                                    </a>
+                                </td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

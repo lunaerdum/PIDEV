@@ -1,0 +1,15 @@
+categorie_homepage:
+    path:     /
+    defaults: { _controller: CategorieBundle:Default:index }
+
+categorie_Ajout:
+    path:     /admin/ajoutCategorie
+    defaults: { _controller: CategorieBundle:Categorie:AjoutCategorie }
+
+categorie_Affiche:
+    path:     /admin/afficheCategorie
+    defaults: { _controller: CategorieBundle:Categorie:AfficheCategorie }
+
+categorie_delete:
+    path:     /admin/deleteCategorie/{id}
+    defaults: { _controller: CategorieBundle:Categorie:deleteCategorie }

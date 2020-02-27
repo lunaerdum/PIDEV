@@ -1,0 +1,59 @@
+{% extends "@User/Page_admin.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Produit</h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                Matricule
+                            </th>
+                            <th>
+                                Marque
+                            </th>
+                            <th>
+                                Disponibilite
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for p in v %}
+
+                            <tr>
+                                <td>
+                                    {{ p.matricule }}
+                                </td>
+                                <td>
+                                    {{ p.marque }}
+                                </td>
+                                <td>
+                                    {{ p.disponiblite }}
+                                </td>
+
+                                <td>
+                                    <a href="{{ path('vehicul_Modifier',{'id':p.matricule}) }}">
+                                        <button  class="btn-xs btn-success">Modifier</button></a><br>
+                                    <a href="{{ path('vehicul_delete',{'id':p.matricule}) }}">
+                                        <button class="btn-xs btn-danger">Supprimer</button></a><br><br>
+                                </td>
+
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

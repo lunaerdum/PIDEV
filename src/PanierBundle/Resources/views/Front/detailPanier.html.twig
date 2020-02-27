@@ -1,0 +1,50 @@
+{% extends "@User/Page_admin.html.twig" %}
+{% block body %}
+
+    <div class="col-lg-20 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Liste Commande </h4>
+
+                <div class="table-responsive pt-3">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>
+                                Code
+                            </th>
+                            <th>
+                                Produit
+                            </th>
+                            <th>
+                                Prix
+                            </th>
+
+
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for p in elements %}
+
+                            <tr>
+                                <td>
+                                    {{ p.id }}
+                                </td>
+                                <td>
+                                    {{ p.nom }}
+                                </td>
+                                <td>
+                                    {{ p.prix }}
+                                </td>
+
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

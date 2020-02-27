@@ -1,0 +1,39 @@
+vehicul_homepage:
+    path:     /
+    defaults: { _controller: VehiculBundle:Default:index }
+
+vehicul_Ajout:
+    path:     /admin/vehiculeAjout
+    defaults: { _controller: VehiculBundle:Vehicule:AjouterVehicule }
+
+vehicul_Affiche:
+    path:     /admin/vehiculeAffiche
+    defaults: { _controller: VehiculBundle:Vehicule:AfficheVehicule }
+
+vehicul_delete:
+    path:     /admin/vehiculeDelete/{id}
+    defaults: { _controller: VehiculBundle:Vehicule:deleteVehicule }
+
+vehicul_Modifier:
+    path:     /admin/vehiculeModifier/{id}
+    defaults: { _controller: VehiculBundle:Vehicule:ModifierVehicule }
+
+AffecterLivraison:
+    path:     /admin/AffecterLivraison/{id}
+    defaults: { _controller: VehiculBundle:CommandeLivrer:AffecterLivraison }
+
+All_Livraison:
+    path:     /admin/AfficherLivraison
+    defaults: { _controller: VehiculBundle:CommandeLivrer:Affichelivraison }
+
+Modifier_Livraison:
+    path:     /admin/ModifierLivraison/{id}
+    defaults: { _controller: VehiculBundle:CommandeLivrer:ModifierVehicule }
+
+
+delete_Livraison:
+    path:     /admin/DeleteLivraison/{id}
+    defaults: { _controller: VehiculBundle:CommandeLivrer:deleteLivraison }
+
+
+
