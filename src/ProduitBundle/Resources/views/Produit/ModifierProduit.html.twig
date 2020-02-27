@@ -7,9 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Produit</h4>
-                <p class="card-description">
-                    Basic form elements
-                </p>
+
                 <div class="form-group">
                     <label for="exampleInputName1">Name</label>
                     {{ form_widget(form.nom, { 'attr': {'class': 'form-control'} }) }}
@@ -26,7 +24,6 @@
                     <label>File upload</label>
                     {{ form_widget(form.file, { 'attr': {'class': 'form-control file-upload-info'} }) }}
 
-                    <input type="file" name="img[]" class="file-upload-default">
                     <div class="input-group col-xs-12">
                     </div>
                 </div>
@@ -38,6 +35,8 @@
                     <label for="exampleInputName1">Quantite</label>
                     {{ form_widget(form.quantite, { 'attr': {'class': 'form-control'} }) }}
                 </div>
+
+
                 <input type="submit" value="Envoyer" class=" btn btn-primary mr-2"/>
                 {{ form_end(form) }}
 

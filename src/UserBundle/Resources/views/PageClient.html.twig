@@ -8,7 +8,7 @@
     <link rel="icon" href="{{ asset('Front/img/favicon.png') }}" type="image/png">
     <title>Bazaar</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+    
 
 
 
@@ -61,7 +61,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="pageClient">
+                <a class="navbar-brand logo_h" href="{{ path('produit_Afficher_Client') }}">
                     <img src="{{ asset('Front/img/logo.pn') }}g" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -76,7 +76,7 @@
                         <div class="col-lg-7 pr-0">
                             <ul class="nav navbar-nav center_nav pull-right">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="">home</a>
+                                    <a class="nav-link" href="{{ path('produit_Afficher_Client') }}">home</a>
                                 </li>
                                 <li class="nav-item submenu dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégorie</a>
@@ -114,11 +114,7 @@
 
                                 <hr>
 
-                                <li class="nav-item">
-                                    <a href="#" class="icons">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </a>
-                                </li>
+
 
                                 <hr>
 
@@ -171,33 +167,32 @@
             <div class="row">
 
                 {% for p in prod %}
+                    {% if p.nvprix==0 %}
+
+
                     <div class="col col">
 
                         <div class="f_p_item">
                             <div class="f_p_img">
                                 <img src="{{ asset('Upload/')}}{{ p.nomfile }}"  width="200" class="img-rectangle" class="col col "  />
-
                                 <div class="p_icon">
-                                    <a href="#">
-                                        <i class="lnr lnr-heart" ></i>
-                                    </a>
                                     <a href="#">
                                         <i class="lnr lnr-cart"></i>
                                     </a>
-
                                 </div>
                             </div>
-                            <a href="#">
-                                <h4>{{ p.marque}}</h4>
-                            </a>
-                             <h5>{{ p.prix }} TND</h5><br>
+                            <br>
+                           <h6>{{ p.nom }}</h6>
+                            <h4>{{ p.marque}}</h4>
+                            <h5>{{ p.prix }} TND</h5>
                             {{socialButtons ({ ' facebook ' : { ' locale ' : ' fr_FR ' , ' send ' : true }})}}
 
-
-
                         </div>
+
                     </div>
+                    {% endif %}
                 {% endfor %}
+
             </div>
             <div class="navigation text-center " ><br>
                 <br>
@@ -296,18 +291,7 @@
 <script src="{{ asset('Front/js/theme.js') }}"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#amine tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-</script>
+
 
 </body>
 

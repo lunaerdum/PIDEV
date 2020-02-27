@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    {{ form_start(form) }}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
@@ -25,7 +25,7 @@
                     <label>File upload</label>
                     {{ form_widget(form.file, { 'attr': {'class': 'form-control file-upload-info'} }) }}
 
-                    <input type="file" name="img[]" class="file-upload-default">
+
                     <div class="input-group col-xs-12">
                     </div>
                 </div>

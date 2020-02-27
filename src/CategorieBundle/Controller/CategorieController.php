@@ -36,16 +36,26 @@ class CategorieController extends Controller
 
     }
 
-    public function AfficheCategorieAction()
+    public function AfficheCategorieAction(Request $request)
     {
 
 
         $m = $this->getDoctrine()->getManager();
         $Categorie = $m->getRepository("CategorieBundle:Categorie")->findAll();
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $Categorie,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',10)
+
+        );
 
 
         return $this->render('CategorieBundle:Categorie:AfficherCategorie.html.twig', array(
-            'cat' => $Categorie
+            'cat' => $result
         ));
     }
 

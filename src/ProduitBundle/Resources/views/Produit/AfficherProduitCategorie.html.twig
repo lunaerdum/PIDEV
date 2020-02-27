@@ -58,7 +58,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="pageClient">
+                <a class="navbar-brand logo_h" href="{{ path('produit_Afficher_Client') }}">
                     <img src="{{ asset('Front/img/logo.pn') }}g" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -113,11 +113,7 @@
 
                                 <hr>
 
-                                <li class="nav-item">
-                                    <a href="#" class="icons">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </a>
-                                </li>
+
 
                                 <hr>
 
@@ -175,9 +171,7 @@
                             <div class="f_p_img">
                                 <img src="{{ asset('Upload/')}}{{ p.nomfile }}" width="200" class="img-rectangle" class="col col " />
                                 <div class="p_icon">
-                                    <a href="#">
-                                        <i class="lnr lnr-heart"></i>
-                                    </a>
+
                                     <a href="#">
                                         <i class="lnr lnr-cart"></i>
                                     </a>

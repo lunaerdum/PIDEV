@@ -48,7 +48,7 @@ class ProduitController extends Controller
         $result = $paginator->paginate(
             $Produit,
             $request->query->getInt('page',1),
-            $request->query->getInt('limit',5)
+            $request->query->getInt('limit',10)
 
         );
 

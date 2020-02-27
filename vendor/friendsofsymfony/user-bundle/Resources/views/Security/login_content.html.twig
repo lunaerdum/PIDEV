@@ -1,118 +1,22 @@
-<!doctype html>
-<html lang="en">
+{% trans_default_domain 'FOSUserBundle' %}
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <title>Fashiop</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/linericon/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/owl-carousel/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/lightbox/simpleLightbox.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/nice-select/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/animate-css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendors/jquery-ui/jquery-ui.css') }}">
-    <!-- main css -->
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
-</head>
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
 
-<body>
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    {% if csrf_token %}
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
 
-<!--================Header Menu Area =================-->
+    <label for="username">{{ 'security.login.username'|trans }}</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
 
-<!--================End Home Banner Area =================-->
+    <label for="password">{{ 'security.login.password'|trans }}</label>
+    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
 
-<!--================Login Box Area =================-->
-<center>
-    <section class="login_box_area p_120">
-        <div class="container">
+    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
 
-            <div class="col-lg-6">
-                <div class="login_form_inner">
-                    <h3>Log in to enter</h3>
-                    <form class="row login_form" action="{{ path("fos_user_security_check") }}" method="post" id="contactForm" novalidate="novalidate">
-                        {% if csrf_token %}
-                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                        {% endif %}
-
-
-                        <div class="col-md-12 form-group">
-                            <label for="username">{{ 'username'|trans }}</label>
-                            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
-                        </div>
-
-
-
-
-                        <div class="col-md-12 form-group">
-                            <label for="password">{{ 'password'|trans }}</label>
-                            <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
-                        </div>
-
-
-
-
-                        <div class="col-md-12 form-group">
-
-                            <div class="creat_account">
-                                <input type="checkbox" id="f-option2" name="selector">
-                                <label for="f-option2">Keep me logged in</label>
-                            </div>
-
-                        </div>
-
-
-
-                        <div class="col-md-12 form-group">
-
-                            <input type="submit" id="_submit" class="btn submit_btn" name="_submit" value="{{ 'login'|trans }}" />
-
-
-
-                            <a href="{{ asset('#') }}">Forgot Password?</a>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        </div>
-    </section>
-</center>
-<!--================End Login Box Area =================-->
-
-<!--================ Subscription Area ================-->
-
-<!--================ End Subscription Area ================-->
-
-<!--================ start footer Area  =================-->
-
-<!--================ End footer Area  =================-->
-
-
-
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ asset('js/popper.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/stellar.js') }}"></script>
-<script src="{{ asset('vendors/lightbox/simpleLightbox.min.js') }}"></script>
-<script src="{{ asset('vendors/nice-select/js/jquery.nice-select.min.js') }}"></script>
-<script src="{{ asset('vendors/isotope/imagesloaded.pkgd.min.js') }}"></script>
-<script src="{{ asset('vendors/isotope/isotope-min.js') }}"></script>
-<script src="{{ asset('vendors/owl-carousel/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('js/jquery.ajaxchimp.min.js') }}"></script>
-<script src="{{ asset('js/mail-script.js') }}"></script>
-<script src="{{ asset('vendors/jquery-ui/jquery-ui.js') }}"></script>
-<script src="{{ asset('vendors/counter-up/jquery.waypoints.min.js') }}"></script>
-<script src="{{ asset('vendors/counter-up/jquery.counterup.js') }}"></script>
-<script src="{{ asset('js/theme.js') }}"></script>
-</body>
-
-</html>
+    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+</form>

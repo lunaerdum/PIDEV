@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+
 class PromotionType extends AbstractType
 {
     /**
@@ -14,7 +15,9 @@ class PromotionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('valeur')->add('datef')->add('id_Produit', EntityType::class, array(
+        $builder->add('valeur')
+            ->add('datef')
+            ->add('id_Produit', EntityType::class, array(
             'class' => 'ProduitBundle:Produit',
             'choice_label' => 'marque',
         ));

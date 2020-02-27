@@ -9,9 +9,11 @@
 namespace ProduitBundle\Controller;
 
 
+use Doctrine\ORM\Query\AST\Functions\CurrentDateFunction;
 use ProduitBundle\Entity\Promotion;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use ProduitBundle\Entity\Produit;
 
 class PromotionController extends  Controller
 {
@@ -26,40 +28,62 @@ class PromotionController extends  Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($Promotion);
             $em->flush();
+            $val=$em->getRepository(Produit::class)->find($Promotion->getIdProduit());
+
+                $val->setNvPrix(($val->getPrix() * (100 -$Promotion->getValeur()) )/100);
+                $em->flush();
+                $em->persist($val);
+
 
             return $this->redirectToRoute('Promotion_Affiche');
         }
+
         return $this->render('ProduitBundle:Promotion:AjoutPromotion.html.twig', array(
             'form' => $form->createView(),
         ));
 
     }
 
-    public function AffichePromotionAction()
+    public function AffichePromotionAction(Request $request)
     {
 
 
         $m = $this->getDoctrine()->getManager();
         $Pro = $m->getRepository("ProduitBundle:Promotion")->findAll();
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $Pro,
+            $request->query->getInt('page',1),
+            $request->query->getInt('limit',10)
 
+        );
 
         return $this->render('ProduitBundle:Promotion:AfficherPromotion.html.twig', array(
-            'pro' => $Pro
+            'pro' => $result
         ));
     }
 
 
     public function deletePromotionAction($id)
     {
+
         $em = $this->getDoctrine()->getManager();
 
-        $Pro = $em->getRepository('ProduitBundle:Promotion')->find($id);
+        $Pro=$em->getRepository(Promotion::class)->find($id);
+        $produit=$em->getRepository(Produit::class)->find($Pro->getIdProduit());
+        $produit->setNvprix(0);
+        $em->flush();
         $em->remove($Pro);
         $em->flush();
 
-
         return $this->redirectToRoute('Promotion_Affiche');
     }
+
+
+
 
     public function ModifierPromotionAction(Request $request, $id)
     {

@@ -47,3 +47,4 @@ produit_Afficher_Client:
 Poromo_Front:
     path:     /Client/AfficherProduitFront
     defaults: { _controller: ProduitBundle:Produit:AffichePromotionFront }
+

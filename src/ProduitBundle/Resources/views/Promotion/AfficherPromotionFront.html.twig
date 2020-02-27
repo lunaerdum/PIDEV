@@ -58,7 +58,7 @@
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="pageClient">
+                <a class="navbar-brand logo_h" href="{{ path('produit_Afficher_Client') }}">
                     <img src="{{ asset('Front/img/logo.pn') }}g" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -111,9 +111,7 @@
                                 <hr>
 
                                 <li class="nav-item">
-                                    <a href="#" class="icons">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                    </a>
+
                                 </li>
 
                                 <hr>
@@ -158,6 +156,8 @@
 <!--================End Clients Logo Area =================-->
 
 <!--================Feature Product Area =================-->
+
+
 <section class="feature_product_area section_gap">
     <div class="main_box">
         <div class="container-fluid">
@@ -165,37 +165,39 @@
 
             </div>
             <div class="row">
-                {% for p in prod %}
 
-                    <div class="col col">
+                {% for p in prod %}
+                    {% set datePost = p.datef|date('d-m-Y') %}
+                    {% set today = "now"|date('d-m-Y') %}
+                    {% if datePost != today %}
+                 {#   {% set difference = date(today).diff(date(u.dateCreation)) %}
+                    {% set leftDays = difference.days %}#}
+
+
+                        <div class="col col">
 
                         <div class="f_p_item">
                             <div class="f_p_img">
                                 <img src="{{ asset('Upload/')}}{{ p.IdProduit.nomfile }}" width="200" class="img-rectangle" class="col col " />
                                 <div class="p_icon">
-                                    <a href="#">
-                                        <i class="lnr lnr-heart" ></i>
-                                    </a>
+
                                     <a href="#">
                                         <i class="lnr lnr-cart"></i>
                                     </a>
                                 </div>
                             </div>
-                            <a href="#">
+
                                 <h4>{{ p.IdProduit.marque}}</h4>
-                            </a>
-                          <strike> <h5>{{ p.IdProduit.prix }} TND</h5></strike>
-                            <h5>{{ p.IdProduit.prix -(p.IdProduit.prix* p.valeur)/100}}TND</h5><br>
-
-                            <h10><font color="red">jusqu'a {{ p.Datef|date('d/m/Y')}}</font></h10><br>
-
-                            {{socialButtons ({ ' facebook ' : { ' locale ' : ' fr_FR ' , ' send ' : true }})}}
-
+                           <strike style="color: red"><h5>{{ p.IdProduit.prix }} TND</h5></strike>
+                            <h5>{{ p.IdProduit.nvprix }} TND</h5>
+                            <h10><font color="red">jusqu'a {{ p.Datef|date('d/m/Y')}}</font></h10>
+                        {{socialButtons ({ ' facebook ' : { ' locale ' : ' fr_FR ' , ' send ' : true }})}}
 
 
                         </div>
 
                     </div>
+                    {% endif %}
                 {% endfor %}
 
             </div>

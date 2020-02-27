@@ -72,6 +72,16 @@ class Produit
     private $id_categorie;
 
 
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="nvprix", type="float", nullable=false)
+     */
+    private $nvprix;
+
+
+
+
 
     public function getWebpath(){
 
@@ -118,6 +128,8 @@ class Produit
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     public $nomfile;
+
+
 
     /**
      * @return string
@@ -230,6 +242,28 @@ class Produit
     {
         $this->nomfile = $nomfile;
     }
+
+    /**
+     * @return float
+     */
+    public function getNvprix()
+    {
+        return $this->nvprix;
+    }
+
+    /**
+     * @param float $nvprix
+     */
+    public function setNvprix($nvprix)
+    {
+        $this->nvprix = $nvprix;
+    }
+
+    /**
+     * @return mixed
+     */
+
+
 
 
 }

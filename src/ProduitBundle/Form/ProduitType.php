@@ -32,6 +32,7 @@ class ProduitType extends AbstractType
         ));
     }
 
+
     /**
      * {@inheritdoc}
      */
