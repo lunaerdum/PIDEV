@@ -3,6 +3,8 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: "@UserBundle/Resources/config/services.yml" }
+    - { resource: "@StockBundle/Resources/config/services.yml" }
+    - { resource: "@ReclamationBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -80,3 +82,15 @@ fos_user:
     from_email:
         address: "beya@mgmail.com"
         sender_name: "beya@mgmail.com"
+
+vresh_twilio:
+            #(Required) Your Account SID from www.twilio.com/user/account
+            sid: 'ACcbd5c5928536b16f4d549c753432e466'
+            #(Required) Your Auth Token from www.twilio.com/user/account
+            authToken: '5d8b8949e3e8a4c2a9f9a93e060aa366'
+            #(Optional, default: '2010-04-01') Twilio API version
+            version: '2010-04-01'
+            #(Optional, default: 1) Number of times to retry failed requests
+            retryAttempts: 3
+
+gregwar_captcha: ~

@@ -12,8 +12,13 @@ class DefaultController extends Controller
     }
     public function ClientAction()
     {
-        return $this->render('UserBundle::Page_client.html.twig');
-    }
+        $m = $this->getDoctrine()->getManager();
+        $Produit = $m->getRepository("StockBundle:Produit")->findAll();
+
+
+        return $this->render('UserBundle::Page_client.html.twig', array(
+            'prod' => $Produit
+        ));    }
     public function FornisseurAction()
     {
         return $this->render('UserBundle::Page_fornisseur.html.twig');

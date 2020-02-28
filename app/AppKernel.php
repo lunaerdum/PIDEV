@@ -19,6 +19,11 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new UserBundle\UserBundle(),
+            new StockBundle\StockBundle(),
+            new CMEN\GoogleChartsBundle\CMENGoogleChartsBundle(),
+            new ReclamationBundle\ReclamationBundle(),
+            new Vresh\TwilioBundle\VreshTwilioBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
